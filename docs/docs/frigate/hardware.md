@@ -288,6 +288,18 @@ The inference time of a rk3588 with all 3 cores enabled is typically 25-30 ms fo
 | ssd mobilenet | ~ 25 ms                         |
 | yolov5m       | ~ 118 ms                        |
 
+### Qualcomm
+
+Frigate supports hardware object detection on Qualcomm SoCs with a Hexagon NPU, including the IQ9100 and QCS6490 (RB3 Gen 2). The QNN TFLite delegate is used to accelerate inference on the HTP (Hexagon Tensor Processor).
+
+A single detector is typically sufficient for multiple camera streams. The default model is **SSD MobileDet** (INT8 quantized).
+
+| Name          | IQ9100 Inference Time | QCS6490 Inference Time |
+| ------------- | --------------------- | ---------------------- |
+| ssd_mobiledet | ~ 2 ms                | TBD                    |
+
+Detailed information is available [in the detector docs](/configuration/object_detectors#qualcomm).
+
 ## What does Frigate use the CPU for and what does it use a detector for? (ELI5 Version)
 
 This is taken from a [user question on reddit](https://www.reddit.com/r/homeassistant/comments/q8mgau/comment/hgqbxh5/?utm_source=share&utm_medium=web2x&context=3). Modified slightly for clarity.
