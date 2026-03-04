@@ -450,6 +450,12 @@ Hardware accelerated object detection is supported on the following Qualcomm SoC
 
 The Qualcomm integration uses [CDI (Container Device Interface)](https://docs.docker.com/build/building/cdi/) to provide the container with access to the NPU device nodes and the QNN delegate libraries from the host.
 
+#### Prerequisites
+
+- **Qualcomm Linux BSP**: Your board must be running the official Qualcomm Linux Board Support Package image. The QNN runtime libraries (including `libQnnTFLiteDelegate.so` and `libQnnHtp.so`) and NPU device nodes (`/dev/fastrpc-cdsp`) are provided by the BSP and are bind-mounted into the container via CDI.
+- **Docker 25.0+**: CDI device support requires Docker 25.0 or later. Check with `docker --version`.
+- **arm64 architecture**: The Qualcomm Docker image is built for `linux/arm64` only. If building locally, you must run the build on the target board itself.
+
 #### CDI Installation
 
 1. Download or copy the CDI setup files from the [Frigate repository](https://github.com/blakeblackshear/frigate/tree/dev/docker/qualcomm/cdi).
